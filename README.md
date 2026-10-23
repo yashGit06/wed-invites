@@ -2,11 +2,19 @@
 
 A luxury, interactive Indian wedding invitation web application crafted with **pure HTML5, CSS3, and modern Vanilla JavaScript**. Designed for seamless deployment on **GitHub Pages**, zero external build tooling required, and fully responsive across mobile, tablet, and desktop devices.
 
+**👉 Check the website link** :- [https://yashgit06.github.io/wed-invites/index.html](https://yashgit06.github.io/wed-invites/index.html)
+
+### Support my work
+
+If you'd like to support my projects, you can send a voluntary contribution via UPI.
+
+- **UPI ID:** `ysahu5801@ybl`
+
 ---
 
 ## ✨ Features at a Glance
 
-- **🌺 Traditional Elegance & Sanskrit Shlokas:** Sacred invocations (*|| ॐ श्री गणेशाय नमः ||*, *|| मङ्गलम् भगवान् विष्णुः ||*, *शुभ विवाह*) typeset with Google Fonts `Noto Serif Devanagari` and `Rozha One`, paired with mandala motifs and warm gold accents.
+- **🌺 Traditional Elegance & Sanskrit Shlokas:** Sacred invocations (_|| ॐ श्री गणेशाय नमः ||_, _|| मङ्गलम् भगवान् विष्णुः ||_, _शुभ विवाह_) typeset with Google Fonts `Noto Serif Devanagari` and `Rozha One`, paired with mandala motifs and warm gold accents.
 - **⏳ Live Muhurat Countdown:** Real-time countdown timer tracking the exact ceremony hour (IST) with a direct "Add to Google Calendar" button.
 - **📅 Interactive Celebrations Timeline:** Day-by-day event itinerary featuring ceremony times, venues, and instant Google Maps navigation links.
 - **🗺️ Interactive 15 km Map & Directory:**
@@ -104,7 +112,7 @@ You can edit individual modular files in `sections/`, `css/`, or `js/`. When you
   ```bash
   npm run dev
   ```
-  Then open `http://localhost:3000` in your browser *(automatically redirects to `/index.html`)*.
+  Then open `http://localhost:3000` in your browser _(automatically redirects to `/index.html`)_.
 
 > **Zero Dependencies:** Both `build.js` and `server.js` use Node's native built-in standard library—no `node_modules` installation required!
 
@@ -135,7 +143,9 @@ Customizing this invitation website for your own wedding takes only a few simple
 All couple details, event schedules, and map locations are dynamically driven by [Data.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/Data.json).
 
 #### A. Couple & Family Information
+
 Edit the `"groom"` and `"bride"` objects:
+
 ```json
 "groom": {
   "name": "MR. YOUR NAME",
@@ -156,7 +166,9 @@ Edit the `"groom"` and `"bride"` objects:
 ```
 
 #### B. Event Timeline & Ceremonies
+
 Edit the `"events"` array. Dates should follow the `YYYY-MM-DD` format:
+
 ```json
 {
   "name": "WEDDING CEREMONY",
@@ -166,10 +178,13 @@ Edit the `"events"` array. Dates should follow the `YYYY-MM-DD` format:
   "venue": "Verma Family Residence"
 }
 ```
+
 > **Tip:** The countdown timer in `js/countdown.js` automatically targets the event containing `"WEDDING CEREMONY"`.
 
 #### C. Map Locations & Coordinates
+
 Add or edit places in the `"locations"` array with their GPS latitude and longitude:
+
 ```json
 {
   "name": "Royal Orchid Hotel",
@@ -180,7 +195,9 @@ Add or edit places in the `"locations"` array with their GPS latitude and longit
   }
 }
 ```
+
 Available categories:
+
 - `"House"` (Groom's Residence, Bride's Residence)
 - `"Stay"` (Hotels, Guest Houses)
 - `"Food"` (Restaurants, Sweets, Street Food)
@@ -194,14 +211,15 @@ Available categories:
 
 Place your photos in `assets/images/`. The application automatically resolves and serves them regardless of case or file extension (`.jpg`, `.jpeg`, `.JPG`, `.png`, `.webp`, `.avif`):
 
-| Base Name | Location on Page | Recommended Aspect Ratio & Resolution |
-| :--- | :--- | :--- |
-| `Couple Pic landscape orientation` | Hero Section Background | **16:9 or 3:2** (e.g., 1920 × 1080 px) |
-| `Bride Single` | The Couple Section (Bride Card) | **1:1 Square** (e.g., 800 × 800 px) |
-| `Groom Single` | The Couple Section (Groom Card) | **1:1 Square** (e.g., 800 × 800 px) |
-| `Couple Pic portrait orientation` | "Our Journey Begins" Editorial Card | **2:3 Vertical Portrait** (e.g., 1080 × 1620 px) |
+| Base Name                          | Location on Page                    | Recommended Aspect Ratio & Resolution            |
+| :--------------------------------- | :---------------------------------- | :----------------------------------------------- |
+| `Couple Pic landscape orientation` | Hero Section Background             | **16:9 or 3:2** (e.g., 1920 × 1080 px)           |
+| `Bride Single`                     | The Couple Section (Bride Card)     | **1:1 Square** (e.g., 800 × 800 px)              |
+| `Groom Single`                     | The Couple Section (Groom Card)     | **1:1 Square** (e.g., 800 × 800 px)              |
+| `Couple Pic portrait orientation`  | "Our Journey Begins" Editorial Card | **2:3 Vertical Portrait** (e.g., 1080 × 1620 px) |
 
 After adding or renaming images, simply run:
+
 ```bash
 npm run build
 ```
@@ -215,12 +233,12 @@ All colors, typography, and shadows are defined as CSS variables at the top of [
 ```css
 :root {
   /* Royal Accent Colors */
-  --color-royal-cobalt: #2273B3;        /* Highlights, active buttons, radius indicators */
-  --color-champagne-gold: #B5A88B;      /* Mandala lines, frames, borders */
-  --color-coral-rose: #F39E99;          /* Eyebrows, CTA gradients */
-  --color-peach-blush: #FBE5E0;         /* Card backgrounds, subtle fills */
-  --color-warm-ivory: #FFFDF9;          /* Page background */
-  --color-dark-olive-grey: #3C423B;     /* Primary text color */
+  --color-royal-cobalt: #2273b3; /* Highlights, active buttons, radius indicators */
+  --color-champagne-gold: #b5a88b; /* Mandala lines, frames, borders */
+  --color-coral-rose: #f39e99; /* Eyebrows, CTA gradients */
+  --color-peach-blush: #fbe5e0; /* Card backgrounds, subtle fills */
+  --color-warm-ivory: #fffdf9; /* Page background */
+  --color-dark-olive-grey: #3c423b; /* Primary text color */
 }
 ```
 
@@ -232,7 +250,7 @@ You can personalize text directly in the modular section partials (and run `npm 
 
 - **Sanskrit Shlokas:**
   - Invocations in the Hero section: [sections/hero.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/hero.html)
-  - Auspicious Vishnu Shloka & *Shubh Vivah* blessings: [sections/rsvp.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/rsvp.html)
+  - Auspicious Vishnu Shloka & _Shubh Vivah_ blessings: [sections/rsvp.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/rsvp.html)
 - **Love & Journey Quote:**
   - The romantic quote in the **"Bound by Love & Tradition"** editorial card: [sections/couple.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/couple.html)
 - **Blessings & Closing Statement:**
@@ -245,48 +263,71 @@ You can personalize text directly in the modular section partials (and run `npm 
 Because the application fetches [Data.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/Data.json) and [dummyData.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/dummyData.json) asynchronously via the `fetch` API, running a lightweight local HTTP server is recommended:
 
 ### Option A: Using Built-in Dev Server (Recommended)
+
 ```bash
 npm run dev
 ```
-Then open your browser at: `http://localhost:3000` *(automatically redirects to `/index.html`)*.
-*(Zero external npm dependencies required—powered by Node's native HTTP library with automatic extension-agnostic image resolution).*
+
+Then open your browser at: `http://localhost:3000` _(automatically redirects to `/index.html`)_.
+_(Zero external npm dependencies required—powered by Node's native HTTP library with automatic extension-agnostic image resolution)._
 
 ### Option B: Using Python
+
 ```bash
 # In the project root directory:
 python -m http.server 8080
 ```
+
 Then open your browser at: `http://localhost:8080`
 
 ### Option C: VS Code Live Server
+
 Right-click on `index.html` inside VS Code and select **"Open with Live Server"**.
 
 ### Option D: Using npx serve
+
 ```bash
 npx serve .
 ```
 
 ---
 
+## 🌿 Branching Strategy & Contribution Guidelines
+
+> [!IMPORTANT]
+> **Direct pushes to the `main` branch are strictly not allowed.**
+>
+> All updates, feature additions, and personalizations must be submitted via a Pull Request (PR):
+>
+> 1. Create a new branch from `main`:
+>    ```bash
+>    git checkout -b feature/your-update-name
+>    ```
+> 2. Commit and push your changes to your remote branch:
+>    ```bash
+>    git add .
+>    git commit -m "Personalize wedding invitation details"
+>    git push origin feature/your-update-name
+>    ```
+> 3. Open a **Pull Request (PR)** against `main`.
+> 4. **At least one review approval** is required before the PR can be merged into `main`.
+
+---
+
 ## 🌐 Deploying to GitHub Pages
 
-This repository is pre-configured for GitHub Pages without requiring any build step:
+This repository is pre-configured for GitHub Pages:
 
-1. Push your repository to GitHub:
-   ```bash
-   git add .
-   git commit -m "Personalize wedding invitation website"
-   git push origin main
-   ```
-2. Navigate to your repository on GitHub.
-3. Go to **Settings** > **Pages** (in the left sidebar).
-4. Under **Build and deployment**:
-   - **Source:** `Deploy from a branch`
-   - **Branch:** `main` (or `master`) / `/ (root)`
-5. Click **Save**. Within 1–2 minutes, your website will be live at:
-   ```text
-   https://<your-username>.github.io/<your-repo-name>/
-   ```
+1. Create a feature branch, commit your changes, and submit a Pull Request.
+2. Once your PR receives **at least 1 approval** and is merged into `main`, GitHub Pages automatically deploys the updated site.
+3. To configure GitHub Pages (one-time setup):
+   - Go to **Settings** > **Pages** in your repository.
+   - Set **Source** to `Deploy from a branch`.
+   - Set **Branch** to `main` / `/ (root)`.
+   - Click **Save**. Within 1–2 minutes, your website will be live at:
+     ```text
+     https://<your-username>.github.io/<your-repo-name>/
+     ```
 
 All asset references in `index.html`, `styles.css`, and `app.js` use explicit relative `./` paths, ensuring error-free loading on both custom domains and GitHub repository subpaths.
 
