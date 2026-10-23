@@ -8,7 +8,7 @@ A luxury, interactive Indian wedding invitation web application crafted with **p
 
 - **🌺 Traditional Elegance & Sanskrit Shlokas:** Sacred invocations (*|| ॐ श्री गणेशाय नमः ||*, *|| मङ्गलम् भगवान् विष्णुः ||*, *शुभ विवाह*) typeset with Google Fonts `Noto Serif Devanagari` and `Rozha One`, paired with mandala motifs and warm gold accents.
 - **⏳ Live Muhurat Countdown:** Real-time countdown timer tracking the exact ceremony hour (IST) with a direct "Add to Google Calendar" button.
-- **📅 Interactive Celebrations Timeline:** Day-by-day event itinerary (Matti Paka, Haldi, Mangal Handi, Baraat Departure, Wedding Ceremony, Reception) featuring ceremony times, venues, and instant Google Maps navigation links.
+- **📅 Interactive Celebrations Timeline:** Day-by-day event itinerary featuring ceremony times, venues, and instant Google Maps navigation links.
 - **🗺️ Interactive 15 km Map & Directory:**
   - Powered by **Leaflet.js** and **OpenStreetMap**.
   - Dynamic 15 km radius boundary ring centered on the residence or venue.
@@ -19,23 +19,27 @@ A luxury, interactive Indian wedding invitation web application crafted with **p
 - **🌸 Ambient Falling Petals:** Canvas-based flower petals gently floating across the screen, complete with a pause/resume toggle and accessibility controls (`prefers-reduced-motion`).
 - **🎉 Confetti Celebration:** Interactive confetti burst button at the bottom right.
 - **📱 Mobile-First Architecture:** Responsive navigation drawer, touch-friendly tap targets, and stacked layout cards.
+- **🛡️ Zero Hardcoded Data in Code:** Code files (`index.html`, `app.js`, `js/*`) contain zero hardcoded personal names, dates, or data structures. Everything hydrates dynamically at runtime from [Data.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/Data.json) and [dummyData.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/dummyData.json).
+- **📸 Extension-Agnostic Media:** Place images in `assets/images/` using any valid extension (`.jpg`, `.jpeg`, `.JPG`, `.png`, `.webp`, `.avif`)—the build and dev server resolve them automatically.
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-Wedding Website/
+Wedding Website JS/
 ├── index.html                               # Assembled entry point (for GitHub Pages & browsers)
 ├── styles.css                               # Root CSS entrypoint (imports css/main.css)
 ├── app.js                                   # Bundled JavaScript entrypoint (bundled from js/*.js)
 ├── build.js                                 # Zero-dependency assembly & validation engine
+├── server.js                                # Zero-dependency local dev server with extension-agnostic image resolution
 ├── package.json                             # Development scripts ("npm run dev", "npm run build")
-├── Data.json                                # Central data source (events, locations, family details)
+├── Data.json                                # Primary data source (events, locations, family details)
+├── dummyData.json                           # Fallback data source (schema-compliant fallback values for missing data)
 ├── README.md                                # Repository guide & documentation
 │
 ├── assets/
-│   └── images/                              # High-resolution wedding photography
+│   └── images/                              # High-resolution wedding photography (any extension supported)
 │       ├── Bride Single.JPG                 # Bride circular portrait
 │       ├── Groom Single.jpeg                # Groom circular portrait
 │       ├── Couple Pic landscape orientation.jpeg # Hero background photo
@@ -45,7 +49,7 @@ Wedding Website/
 │   ├── head.html                            # <head> metadata, Google Fonts, Leaflet CSS
 │   ├── celebration-controls.html            # Petals canvas, confetti canvas, floating buttons
 │   ├── header.html                          # Sticky top nav & brand monogram
-│   ├── hero.html                            # Hero invitation cover, Sanskrit shlokas, couple names
+│   ├── hero.html                            # Hero invitation cover, Sanskrit shlokas, dynamic couple names
 │   ├── countdown.html                       # Live Muhurat countdown module
 │   ├── couple.html                          # The Couple & Parents profile cards + editorial quote
 │   ├── celebrations.html                    # Events itinerary timeline
@@ -71,13 +75,14 @@ Wedding Website/
 │
 └── js/                                      # Modular Vanilla JavaScript:
     ├── main.js                              # Application orchestrator & DOM ready bootstrapper
-    ├── data.js                              # Central state, DEFAULT_DATA fallback & Data.json fetch
-    ├── utils.js                             # Haversine distance, date formatters, SVG icons
+    ├── dataProcess.js                       # In-memory normalizer (populates window.processedData using dummyData.json)
+    ├── data.js                              # Central state, dummyData.json & Data.json async loaders
+    ├── utils.js                             # Haversine distance, dynamic date formatters, SVG icons
     ├── navigation.js                        # Header sticky scroll & mobile drawer interaction
-    ├── couple.js                            # Couple & family profile rendering
+    ├── couple.js                            # Dynamic couple & family profile rendering
     ├── timeline.js                          # Celebrations timeline rendering & calendar links
     ├── countdown.js                         # Live Muhurat countdown timer ticker
-    ├── map.js                               # Leaflet map, 15km radius circle, markers & clustering
+    ├── map.js                               # Leaflet map, 15 km radius circle, markers & clustering
     ├── directory.js                         # Places search, category filters, radius toggles & table
     ├── petals.js                            # Canvas falling flower petals simulation & toggle
     └── confetti.js                          # Canvas celebratory confetti burst engine
@@ -99,9 +104,25 @@ You can edit individual modular files in `sections/`, `css/`, or `js/`. When you
   ```bash
   npm run dev
   ```
-  Then open `http://localhost:3000` in your browser.
+  Then open `http://localhost:3000` in your browser *(automatically redirects to `/index.html`)*.
 
-> **Zero Dependencies:** Both `build.js` and `npm run dev` use Node's native built-in standard library—no `node_modules` installation required!
+> **Zero Dependencies:** Both `build.js` and `server.js` use Node's native built-in standard library—no `node_modules` installation required!
+
+---
+
+## 🔄 How the Data Architecture Works
+
+1. **`Data.json` (Primary Source)**:
+   Contains real wedding information (Groom, Bride, Events, Locations).
+2. **`dummyData.json` (Fallback Source)**:
+   Contains complete, generic dummy data conforming to the exact schema. If any field in `Data.json` is missing, empty, or unpopulated, values from `dummyData.json` are used automatically.
+3. **`js/dataProcess.js` (In-Memory Processing)**:
+   - Reads `Data.json` and `dummyData.json` at runtime via `fetch()`.
+   - Produces the in-memory `window.processedData` variable.
+   - **No files are generated on disk** (zero `processedData.json`).
+   - Zero hardcoded names or dates inside JavaScript code files.
+4. **Hydration**:
+   Every visual component (`couple.js`, `timeline.js`, `countdown.js`, `map.js`, `directory.js`) reads dynamically from `window.processedData`.
 
 ---
 
@@ -111,7 +132,7 @@ Customizing this invitation website for your own wedding takes only a few simple
 
 ### 1. Update the Wedding Data (`Data.json`)
 
-All couple details, event schedules, and map locations are dynamically driven by [Data.json](file:///d:/Not%20JOB/Wedding%20Website/Data.json).
+All couple details, event schedules, and map locations are dynamically driven by [Data.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/Data.json).
 
 #### A. Couple & Family Information
 Edit the `"groom"` and `"bride"` objects:
@@ -139,10 +160,10 @@ Edit the `"events"` array. Dates should follow the `YYYY-MM-DD` format:
 ```json
 {
   "name": "WEDDING CEREMONY",
-  "date": "2026-11-30",
+  "date": "2026-12-14",
   "day": "Monday",
-  "time": "Approximately 10:00 PM",
-  "venue": "Bride's location"
+  "time": "8:00 PM",
+  "venue": "Verma Family Residence"
 }
 ```
 > **Tip:** The countdown timer in `js/countdown.js` automatically targets the event containing `"WEDDING CEREMONY"`.
@@ -151,11 +172,11 @@ Edit the `"events"` array. Dates should follow the `YYYY-MM-DD` format:
 Add or edit places in the `"locations"` array with their GPS latitude and longitude:
 ```json
 {
-  "name": "Hotel Royal Palace",
+  "name": "Royal Orchid Hotel",
   "category": "Stay",
   "coordinates": {
-    "latitude": 22.671421,
-    "longitude": 85.631643
+    "latitude": 23.352,
+    "longitude": 85.322
   }
 }
 ```
@@ -169,22 +190,27 @@ Available categories:
 
 ---
 
-### 2. Replacing Photos
+### 2. Replacing Photos (Extension-Agnostic)
 
-Place your photos in `assets/images/` using either the existing filenames or updating the `src` attributes in `sections/` and running `node build.js`:
+Place your photos in `assets/images/`. The application automatically resolves and serves them regardless of case or file extension (`.jpg`, `.jpeg`, `.JPG`, `.png`, `.webp`, `.avif`):
 
-| File Name | Location on Page | Recommended Aspect Ratio & Resolution |
+| Base Name | Location on Page | Recommended Aspect Ratio & Resolution |
 | :--- | :--- | :--- |
-| `assets/images/Couple Pic landscape orientation.jpeg` | Hero Section Background | **16:9 or 3:2** (e.g., 1920 × 1080 px) |
-| `assets/images/Bride Single.JPG` | The Couple Section (Bride Card) | **1:1 Square** (e.g., 800 × 800 px) |
-| `assets/images/Groom Single.jpeg` | The Couple Section (Groom Card) | **1:1 Square** (e.g., 800 × 800 px) |
-| `assets/images/Couple Pic portrait orientation.jpg` | "Our Journey Begins" Editorial Card | **2:3 Vertical Portrait** (e.g., 1080 × 1620 px) |
+| `Couple Pic landscape orientation` | Hero Section Background | **16:9 or 3:2** (e.g., 1920 × 1080 px) |
+| `Bride Single` | The Couple Section (Bride Card) | **1:1 Square** (e.g., 800 × 800 px) |
+| `Groom Single` | The Couple Section (Groom Card) | **1:1 Square** (e.g., 800 × 800 px) |
+| `Couple Pic portrait orientation` | "Our Journey Begins" Editorial Card | **2:3 Vertical Portrait** (e.g., 1080 × 1620 px) |
+
+After adding or renaming images, simply run:
+```bash
+npm run build
+```
 
 ---
 
 ### 3. Customizing Colors & Styling (`css/variables.css`)
 
-All colors, typography, and shadows are defined as CSS variables at the top of [css/variables.css](file:///d:/Not%20JOB/Wedding%20Website/css/variables.css) in the `:root` selector:
+All colors, typography, and shadows are defined as CSS variables at the top of [css/variables.css](file:///d:/Not%20JOB/Wedding%20Website%20JS/css/variables.css) in the `:root` selector:
 
 ```css
 :root {
@@ -202,28 +228,28 @@ All colors, typography, and shadows are defined as CSS variables at the top of [
 
 ### 4. Customizing Text Quotes & Blessings (`sections/` or `index.html`)
 
-You can personalize text directly in the modular section partials (and run `npm run build` or `node build.js`), or directly in [index.html](file:///d:/Not%20JOB/Wedding%20Website/index.html):
+You can personalize text directly in the modular section partials (and run `npm run build` or `node build.js`), or directly in [index.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/index.html):
 
 - **Sanskrit Shlokas:**
-  - Invocations in the Hero section: [sections/hero.html](file:///d:/Not%20JOB/Wedding%20Website/sections/hero.html)
-  - Auspicious Vishnu Shloka & *Shubh Vivah* blessings: [sections/rsvp.html](file:///d:/Not%20JOB/Wedding%20Website/sections/rsvp.html)
+  - Invocations in the Hero section: [sections/hero.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/hero.html)
+  - Auspicious Vishnu Shloka & *Shubh Vivah* blessings: [sections/rsvp.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/rsvp.html)
 - **Love & Journey Quote:**
-  - The romantic quote in the **"Bound by Love & Tradition"** editorial card: [sections/couple.html](file:///d:/Not%20JOB/Wedding%20Website/sections/couple.html)
+  - The romantic quote in the **"Bound by Love & Tradition"** editorial card: [sections/couple.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/couple.html)
 - **Blessings & Closing Statement:**
-  - Heartfelt wedding message and RSVP action buttons: [sections/rsvp.html](file:///d:/Not%20JOB/Wedding%20Website/sections/rsvp.html)
+  - Heartfelt wedding message and RSVP action buttons: [sections/rsvp.html](file:///d:/Not%20JOB/Wedding%20Website%20JS/sections/rsvp.html)
 
 ---
 
 ## 🚀 Running Locally
 
-Because the application fetches [Data.json](file:///d:/Not%20JOB/Wedding%20Website/Data.json) asynchronously via the `fetch` API, running a lightweight local HTTP server is recommended (browsers restrict `fetch()` on `file:///` URLs):
+Because the application fetches [Data.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/Data.json) and [dummyData.json](file:///d:/Not%20JOB/Wedding%20Website%20JS/dummyData.json) asynchronously via the `fetch` API, running a lightweight local HTTP server is recommended:
 
 ### Option A: Using Built-in Dev Server (Recommended)
 ```bash
 npm run dev
 ```
-Then open your browser at: `http://localhost:3000` *(automatically redirects to `/index.html`)*
-*(Zero external npm dependencies required—powered by Node's native HTTP library).*
+Then open your browser at: `http://localhost:3000` *(automatically redirects to `/index.html`)*.
+*(Zero external npm dependencies required—powered by Node's native HTTP library with automatic extension-agnostic image resolution).*
 
 ### Option B: Using Python
 ```bash
@@ -239,8 +265,6 @@ Right-click on `index.html` inside VS Code and select **"Open with Live Server"*
 ```bash
 npx serve .
 ```
-
-> **Note:** [js/data.js](file:///d:/Not%20JOB/Wedding%20Website/js/data.js) (and bundled [app.js](file:///d:/Not%20JOB/Wedding%20Website/app.js)) also has embedded fallback contract data, so even if opened directly via `file:///`, the website will render gracefully.
 
 ---
 
