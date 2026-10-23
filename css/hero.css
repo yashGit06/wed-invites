@@ -1,0 +1,181 @@
+/* --------------------------------------------------------------------------
+   6. Hero Section / Invitation Cover
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.hero-card {
+  background: var(--color-warm-ivory);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+/* Subtle corner mandala accents */
+.corner-ornament {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  color: var(--color-champagne-gold);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.corner-top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.corner-top-right {
+  top: 10px;
+  right: 10px;
+  transform: rotate(90deg);
+}
+
+.corner-bottom-left {
+  bottom: 10px;
+  left: 10px;
+  transform: rotate(-90deg);
+}
+
+.corner-bottom-right {
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text-block {
+  text-align: center;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.invitation-intro {
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* Fluid responsive couple names */
+.hero-couple-names {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.5rem, 6.5vw, 5.2rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-dark-olive-grey);
+  margin-block: 0.5rem 1rem;
+}
+
+.hero-couple-names .ampersand {
+  font-family: var(--font-serif-heading);
+  font-style: italic;
+  color: var(--color-coral-rose);
+  font-size: 0.85em;
+  margin-inline: 0.2em;
+}
+
+.hero-formal-names {
+  font-family: var(--font-serif-heading);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+  margin-bottom: 1.25rem;
+}
+
+.hero-family-statement {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 650px;
+  margin-inline: auto;
+  margin-bottom: 1.75rem;
+}
+
+.hero-date-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(251, 229, 224, 0.45);
+  border: 1px solid var(--color-gold-border);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 2rem;
+}
+
+.hero-date-banner .date-text {
+  font-family: var(--font-serif-heading);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  letter-spacing: 0.14em;
+  color: var(--color-dark-olive-grey);
+  font-weight: 600;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Hero 16:9 Landscape Couple Photo Frame */
+.hero-photo-wrapper {
+  position: relative;
+  max-width: 960px;
+  margin-inline: auto;
+  margin-top: 1rem;
+}
+
+.hero-photo-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(68, 72, 66, 0.14);
+  border: 2px solid var(--color-champagne-gold);
+  background: var(--color-peach-blush);
+  aspect-ratio: 16 / 9;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-photo-frame:hover img {
+  transform: scale(1.02);
+}
+
+.hero-photo-badge {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(255, 252, 247, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-dark);
+}

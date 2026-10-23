@@ -1,0 +1,242 @@
+/* --------------------------------------------------------------------------
+   4. Typography Utilities & Stationery Elements
+   -------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-serif-display);
+}
+
+.font-heading {
+  font-family: var(--font-serif-heading);
+}
+
+.eyebrow {
+  font-family: var(--font-sans-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-royal-cobalt);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.invitation-quote {
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+/* Auspicious Sanskrit Header with Sub-line */
+.auspicious-shloka {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.shloka-main {
+  font-family: var(--font-devanagari-serif);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  letter-spacing: 0;
+  word-spacing: 0.18em;
+  color: var(--color-royal-cobalt);
+  font-weight: 600;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(34, 115, 179, 0.12);
+  text-rendering: optimizeLegibility;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1,
+    "clig" 1;
+}
+
+.shloka-sub {
+  font-family: var(--font-devanagari-display);
+  font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+  letter-spacing: 0;
+  word-spacing: 0.3em;
+  color: var(--color-gold-dark);
+  font-weight: 700;
+  margin-top: 0.2rem;
+  line-height: 1.35;
+  text-rendering: optimizeLegibility;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
+}
+
+/* Decorative Mandala Elements & Dividers */
+.mandala-bg-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(540px, 90vw);
+  height: min(540px, 90vw);
+  pointer-events: none;
+  opacity: 0.12;
+  color: var(--color-royal-cobalt);
+  z-index: 1;
+}
+
+.mandala-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 1.75rem auto;
+  max-width: 440px;
+  color: var(--color-champagne-gold);
+}
+
+.mandala-divider::before,
+.mandala-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-royal-cobalt),
+    var(--color-champagne-gold),
+    transparent
+  );
+}
+
+.mandala-icon-sm {
+  width: 38px;
+  height: 38px;
+  color: var(--color-royal-cobalt);
+  flex-shrink: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mandala-divider:hover .mandala-icon-sm {
+  transform: rotate(45deg);
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 320px;
+  color: var(--color-champagne-gold);
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-royal-cobalt),
+    var(--color-champagne-gold),
+    transparent
+  );
+}
+
+.ornament-lotus {
+  width: 26px;
+  height: 26px;
+  color: var(--color-royal-cobalt);
+  fill: currentColor;
+}
+
+/* Stationery Double-Border Frame */
+.stationery-frame {
+  position: relative;
+  background: var(--color-warm-ivory);
+  border: 1px solid var(--color-gold-border);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-md);
+  padding: clamp(1.75rem, 4vw, 3rem);
+}
+
+.stationery-frame::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(181, 168, 139, 0.25);
+  border-radius: calc(var(--radius-md) - 4px);
+  pointer-events: none;
+}
+
+/* Signature Gradient Pill Badge */
+.gradient-badge {
+  background: var(--gradient-signature);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(34, 115, 179, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.place-center-badge {
+  font-size: 0.88rem;
+  padding: 0.35rem 0.95rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(34, 115, 179, 0.3);
+}
+
+/* Main Container Layout */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  position: relative;
+  z-index: 3;
+}
+
+.container-narrow {
+  max-width: var(--content-narrow);
+}
+
+.section-padding {
+  padding-block: var(--section-space);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Section Header Typography */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-dark-olive-grey);
+  margin-top: 0.25rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  font-weight: 400;
+}

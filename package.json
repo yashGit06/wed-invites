@@ -1,0 +1,19 @@
+{
+  "name": "royal-wedding-invitation",
+  "version": "1.0.0",
+  "description": "Luxury interactive Indian wedding invitation website driven by Data.json",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "wedding",
+    "invitation",
+    "indian-wedding",
+    "luxury-stationery",
+    "leaflet",
+    "interactive"
+  ],
+  "author": "Wedding Celebration Engine",
+  "license": "MIT"
+}

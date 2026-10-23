@@ -1,0 +1,105 @@
+/* --------------------------------------------------------------------------
+   3. Falling Flower Petals Canvas / Layer
+   -------------------------------------------------------------------------- */
+#petals-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2; /* Behind interactive content, floating over background */
+  opacity: 0.85;
+}
+
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 105; /* In front of content during celebration */
+}
+
+/* Floating Action Controls Bar (Flexbox aligned to prevent overlap under any resolution) */
+.floating-celebration-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 102;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  pointer-events: auto;
+}
+
+/* Petals Toggle Button */
+.petals-toggle-btn {
+  background: var(--color-surface-pure);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-dark-olive-grey);
+  box-shadow: var(--shadow-card);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  transition: all var(--motion-fast);
+  cursor: pointer;
+}
+
+.petals-toggle-btn:hover {
+  background: var(--color-peach-blush);
+  border-color: var(--color-royal-cobalt);
+  color: var(--color-royal-cobalt);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(68, 72, 66, 0.12);
+}
+
+/* Confetti Celebration Action Button */
+.confetti-btn {
+  background: linear-gradient(135deg, #2273b3 0%, #658fcb 60%, #a9a4db 100%);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0 8px 24px rgba(34, 115, 179, 0.38);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--motion-standard);
+}
+
+.confetti-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(34, 115, 179, 0.48);
+  background: linear-gradient(135deg, #1a6098 0%, #2273b3 60%, #658fcb 100%);
+}
+
+.confetti-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.confetti-icon {
+  font-size: 1.15rem;
+  animation: confetti-bounce 2s infinite ease-in-out;
+}
+
+@keyframes confetti-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(8deg);
+  }
+}

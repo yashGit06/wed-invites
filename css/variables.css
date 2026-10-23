@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Indian Wedding Invitation - Luxury Stationery Design System
+   Theme: Contemporary Indian Wedding Stationery & Editorial Elegance
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Required Color Tokens */
+  --color-peach-blush: #fbe5e0;
+  --color-coral-rose: #f39e99;
+  --color-warm-ivory: #fffcf7;
+  --color-royal-cobalt: #2273b3;
+  --color-soft-periwinkle: #658fcb;
+  --color-lavender-mist: #d6b9d9;
+  --color-periwinkle-lavender: #a9a4db;
+  --color-dusty-mauve: #c8a2b8;
+  --color-champagne-gold: #b5a88b;
+  --color-dark-olive-grey: #444842;
+
+  /* Extended Harmonious Tones */
+  --color-gold-light: #dfcfa8;
+  --color-gold-dark: #8c7b5d;
+  --color-gold-border: rgba(181, 168, 139, 0.45);
+  --color-gold-glow: rgba(181, 168, 139, 0.25);
+  --color-text-muted: #6b7068;
+  --color-text-light: #8e938b;
+  --color-surface-translucent: rgba(255, 252, 247, 0.92);
+  --color-surface-pure: #ffffff;
+  --color-card-border: rgba(181, 168, 139, 0.35);
+
+  /* Signature Blue–Purple–Lavender Gradient */
+  --gradient-signature: linear-gradient(
+    115deg,
+    #2273b3 0%,
+    #658fcb 28%,
+    #a9a4db 55%,
+    #d6b9d9 75%,
+    #f3b9b5 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    #dfd1b1 0%,
+    #b5a88b 50%,
+    #948564 100%
+  );
+  --gradient-rose-subtle: linear-gradient(135deg, #fbe5e0 0%, #f8d8d1 100%);
+  --gradient-card-highlight: linear-gradient(
+    180deg,
+    rgba(255, 252, 247, 0.98) 0%,
+    rgba(251, 229, 224, 0.4) 100%
+  );
+
+  /* Typography */
+  --font-serif-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-serif-heading: "Marcellus", Georgia, serif;
+  --font-sans-body:
+    "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-devanagari-serif:
+    "Noto Serif Devanagari", "Rozha One", "Mangal", "Nirmala UI", serif;
+  --font-devanagari-display:
+    "Rozha One", "Noto Serif Devanagari", "Mangal", "Nirmala UI", serif;
+
+  /* Layout & Spacing */
+  --content-max: 1180px;
+  --content-narrow: 840px;
+  --section-space: clamp(4rem, 7vw, 7.5rem);
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-soft: 0 14px 40px rgba(68, 72, 66, 0.08);
+  --shadow-card:
+    0 10px 30px rgba(68, 72, 66, 0.06), 0 1px 3px rgba(68, 72, 66, 0.04);
+  --shadow-elevated: 0 20px 48px rgba(68, 72, 66, 0.12);
+  --shadow-gold-inset: inset 0 0 0 1px var(--color-gold-border);
+
+  /* Transitions */
+  --motion-fast: 180ms ease;
+  --motion-standard: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-slow: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}

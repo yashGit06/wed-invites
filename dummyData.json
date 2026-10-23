@@ -1,0 +1,156 @@
+{
+  "events": [
+    {
+      "name": "WEDDING CEREMONY",
+      "date": "2026-12-14",
+      "day": "Monday",
+      "time": "8:00 PM",
+      "venue": "Grand Palace Banquet, Main Road"
+    },
+    {
+      "name": "WEDDING RECEPTION",
+      "date": "2026-12-16",
+      "day": "Wednesday",
+      "time": "7:00 PM onwards",
+      "venue": "Royal Heritage Gardens, City Center"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Groom",
+      "category": "House",
+      "coordinates": {
+        "latitude": 23.3441,
+        "longitude": 85.3096
+      }
+    },
+    {
+      "name": "Bride",
+      "category": "House",
+      "coordinates": {
+        "latitude": 23.365,
+        "longitude": 85.332
+      }
+    },
+    {
+      "name": "Guest Stay Hotel",
+      "category": "Stay",
+      "coordinates": {
+        "latitude": 23.352,
+        "longitude": 85.322
+      }
+    },
+    {
+      "name": "Local Market",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.337,
+        "longitude": 85.298
+      }
+    },
+    {
+      "name": "Dining Street",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.356,
+        "longitude": 85.302
+      }
+    },
+    {
+      "name": "Central Railway Station",
+      "category": "Travel",
+      "coordinates": {
+        "latitude": 23.328,
+        "longitude": 85.326
+      }
+    },
+    {
+      "name": "Famous Street Food",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.339,
+        "longitude": 85.304
+      }
+    },
+    {
+      "name": "Garden Dining Restaurant",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.359,
+        "longitude": 85.315
+      }
+    },
+    {
+      "name": "Traditional Refreshments",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.349,
+        "longitude": 85.291
+      }
+    },
+    {
+      "name": "Scenic Lake View",
+      "category": "Tourist",
+      "coordinates": {
+        "latitude": 23.382,
+        "longitude": 85.307
+      }
+    },
+    {
+      "name": "Scenic Dam & Reservoir",
+      "category": "Tourist",
+      "coordinates": {
+        "latitude": 23.319,
+        "longitude": 85.291
+      }
+    },
+    {
+      "name": "Botanical Nature Park",
+      "category": "Tourist",
+      "coordinates": {
+        "latitude": 23.371,
+        "longitude": 85.286
+      }
+    },
+    {
+      "name": "Grand Shopping Mall",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.326,
+        "longitude": 85.3
+      }
+    },
+    {
+      "name": "Wedding Wear Boutique",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.341,
+        "longitude": 85.317
+      }
+    },
+    {
+      "name": "Convenience Supermarket",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.333,
+        "longitude": 85.312
+      }
+    }
+  ],
+  "groom": {
+    "name": "MR. GROOM NAME",
+    "relation": "Son of",
+    "parents": {
+      "father": "Shri Father Name",
+      "mother": "Smt. Mother Name"
+    }
+  },
+  "bride": {
+    "name": "MS. BRIDE NAME",
+    "relation": "Daughter of",
+    "parents": {
+      "father": "Shri Father Name",
+      "mother": "Smt. Mother Name"
+    }
+  }
+}

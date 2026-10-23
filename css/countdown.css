@@ -1,0 +1,117 @@
+/* --------------------------------------------------------------------------
+   7. Countdown Module
+   -------------------------------------------------------------------------- */
+.countdown-section {
+  padding-block: 2rem 4rem;
+}
+
+.countdown-card {
+  background: var(--color-warm-ivory);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-signature);
+}
+
+.countdown-header {
+  margin-bottom: 2rem;
+}
+
+.countdown-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--color-dark-olive-grey);
+}
+
+.countdown-target-label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 0.35rem;
+}
+
+.countdown-timer-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.4rem, 1.8vw, 1.25rem);
+  flex-wrap: nowrap !important;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.countdown-unit {
+  flex: 1 1 0;
+  max-width: 115px;
+  min-width: 68px;
+  background: rgba(251, 229, 224, 0.45);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  padding: clamp(0.75rem, 2.5vw, 1.5rem) 0.35rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: transform var(--motion-fast);
+}
+
+.countdown-unit:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-coral-rose);
+}
+
+.countdown-number {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-dark-olive-grey);
+  font-variant-numeric: tabular-nums;
+  display: block;
+}
+
+.countdown-label {
+  font-family: var(--font-sans-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.countdown-separator {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-champagne-gold);
+  line-height: 1;
+  margin-top: -1.5rem;
+}
+
+.countdown-past-msg {
+  font-family: var(--font-serif-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--color-royal-cobalt);
+  padding: 1.5rem;
+}
+
+.countdown-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

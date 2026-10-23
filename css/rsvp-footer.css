@@ -1,0 +1,81 @@
+/* --------------------------------------------------------------------------
+   11. Closing Invitation / RSVP-style Ending
+   -------------------------------------------------------------------------- */
+.rsvp-section {
+  padding-block: var(--section-space);
+  text-align: center;
+}
+
+.rsvp-card {
+  background: var(--color-warm-ivory);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.rsvp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-signature);
+}
+
+.rsvp-statement {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-dark-olive-grey);
+  max-width: 720px;
+  margin-inline: auto;
+  margin-block: 1rem 2rem;
+}
+
+.rsvp-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-warm-ivory);
+  border-top: 1px solid var(--color-gold-border);
+  padding-block: 2.5rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  position: relative;
+  z-index: 3;
+}
+
+.footer-couple-name {
+  font-family: var(--font-serif-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-dark-olive-grey);
+  margin-bottom: 0.25rem;
+}
+
+.footer-date {
+  font-family: var(--font-serif-heading);
+  letter-spacing: 0.12em;
+  color: var(--color-gold-dark);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.footer-blessing {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}

@@ -1,0 +1,184 @@
+{
+  "events": [
+    {
+      "name": "ROKA CEREMONY",
+      "date": "2026-12-11",
+      "day": "Friday",
+      "time": "11:00 AM onwards",
+      "venue": "Sharma Family Residence"
+    },
+    {
+      "name": "HALDI CEREMONY",
+      "date": "2026-12-12",
+      "day": "Saturday",
+      "time": "10:00 AM onwards",
+      "venue": "Sharma Family Residence"
+    },
+    {
+      "name": "MEHENDI CEREMONY",
+      "date": "2026-12-13",
+      "day": "Sunday",
+      "time": "4:00 PM onwards",
+      "venue": "Sharma Family Residence"
+    },
+    {
+      "name": "BARAAT DEPARTURE",
+      "date": "2026-12-14",
+      "day": "Monday",
+      "time": "5:00 PM",
+      "venue": "Sharma Family Residence"
+    },
+    {
+      "name": "WEDDING CEREMONY",
+      "date": "2026-12-14",
+      "day": "Monday",
+      "time": "8:00 PM",
+      "venue": "Verma Family Residence"
+    },
+    {
+      "name": "WEDDING RECEPTION",
+      "date": "2026-12-16",
+      "day": "Wednesday",
+      "time": "7:00 PM onwards",
+      "venue": "Shagun Celebration Garden"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Aarav Sharma's Residence",
+      "category": "House",
+      "coordinates": {
+        "latitude": 23.3441,
+        "longitude": 85.3096
+      }
+    },
+    {
+      "name": "Ananya Verma's Residence",
+      "category": "House",
+      "coordinates": {
+        "latitude": 23.365,
+        "longitude": 85.332
+      }
+    },
+    {
+      "name": "Royal Orchid Hotel",
+      "category": "Stay",
+      "coordinates": {
+        "latitude": 23.352,
+        "longitude": 85.322
+      }
+    },
+    {
+      "name": "Shivaji Nagar Market",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.337,
+        "longitude": 85.298
+      }
+    },
+    {
+      "name": "Rasoi Food Street",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.356,
+        "longitude": 85.302
+      }
+    },
+    {
+      "name": "Lakshmi Nagar Railway Station",
+      "category": "Travel",
+      "coordinates": {
+        "latitude": 23.328,
+        "longitude": 85.326
+      }
+    },
+    {
+      "name": "Gupta Chaat Corner",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.339,
+        "longitude": 85.304
+      }
+    },
+    {
+      "name": "Spice Garden Restaurant",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.359,
+        "longitude": 85.315
+      }
+    },
+    {
+      "name": "Madhav Refreshments",
+      "category": "Food",
+      "coordinates": {
+        "latitude": 23.349,
+        "longitude": 85.291
+      }
+    },
+    {
+      "name": "Kamala Sarovar",
+      "category": "Tourist",
+      "coordinates": {
+        "latitude": 23.382,
+        "longitude": 85.307
+      }
+    },
+    {
+      "name": "Shanti Sagar Dam",
+      "category": "Tourist",
+      "coordinates": {
+        "latitude": 23.319,
+        "longitude": 85.291
+      }
+    },
+    {
+      "name": "Neelkanth Garden",
+      "category": "Tourist",
+      "coordinates": {
+        "latitude": 23.371,
+        "longitude": 85.286
+      }
+    },
+    {
+      "name": "Vrindavan Shopping Mall",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.326,
+        "longitude": 85.3
+      }
+    },
+    {
+      "name": "Meera Fashion House",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.341,
+        "longitude": 85.317
+      }
+    },
+    {
+      "name": "Annapurna Grocery Store",
+      "category": "Shopping",
+      "coordinates": {
+        "latitude": 23.333,
+        "longitude": 85.312
+      }
+    }
+  ],
+  "groom": {
+    "name": "MR. AARAV KUMAR SHARMA",
+    "relation": "Son of",
+    "parents": {
+      "father": "Shri Rajesh Kumar Sharma",
+      "mother": "Smt. Sunita Devi Sharma"
+    }
+  },
+  "bride": {
+    "name": "MS. ANANYA SINGH VERMA",
+    "relation": "Daughter of",
+    "parents": {
+      "father": "Shri Amit Kumar Verma",
+      "mother": "Smt. Pooja Devi Verma"
+    }
+  }
+}

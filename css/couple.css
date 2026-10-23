@@ -1,0 +1,137 @@
+/* --------------------------------------------------------------------------
+   8. Couple and Family Section
+   -------------------------------------------------------------------------- */
+.couple-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.profile-card {
+  background: var(--color-warm-ivory);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  position: relative;
+  transition:
+    transform var(--motion-standard),
+    box-shadow var(--motion-standard);
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.profile-photo-wrapper {
+  width: clamp(170px, 30vw, 230px);
+  height: clamp(170px, 30vw, 230px);
+  margin-inline: auto;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.profile-photo-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-champagne-gold);
+  outline: 2px dashed rgba(181, 168, 139, 0.4);
+  outline-offset: 6px;
+  background: var(--color-peach-blush);
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.profile-card:hover .profile-photo-frame img {
+  transform: scale(1.04);
+}
+
+.profile-role-tag {
+  font-family: var(--font-sans-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-coral-rose);
+  margin-bottom: 0.4rem;
+}
+
+.profile-name {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-dark-olive-grey);
+  margin-bottom: 0.75rem;
+}
+
+.profile-relation {
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.profile-parents {
+  font-family: var(--font-serif-heading);
+  font-size: 1.05rem;
+  color: var(--color-gold-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Editorial Couple Feature (2:3 Portrait photo layout) */
+.couple-feature-card {
+  background: var(--color-warm-ivory);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.couple-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.couple-feature-photo {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  max-height: 600px;
+  overflow: hidden;
+  background: var(--color-peach-blush);
+}
+
+.couple-feature-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.couple-feature-content {
+  padding: clamp(2.5rem, 5vw, 4rem);
+  text-align: left;
+}
+
+.couple-feature-content .story-quote {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-dark-olive-grey);
+  margin-block: 1rem 1.5rem;
+}

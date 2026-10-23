@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Wedding Invitation &amp; Celebrations</title>
+    <meta
+      id="meta-description"
+      name="description"
+      content="Joyfully celebrating the wedding. Explore celebrations, timeline, places directory, and venue map."
+    />
+
+    <!-- Favicon / Traditional Floral Icon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>"
+    />
+
+    <!-- Google Fonts: Cormorant Garamond, Marcellus, Plus Jakarta Sans, Noto Serif Devanagari, Rozha One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Rozha+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet CSS for Interactive OpenStreetMap -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Main Luxury Indian Stationery Stylesheet -->
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- Falling Flower Petals Canvas Layer -->
+    <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+    <!-- Confetti Celebration Canvas Layer -->
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <!-- Floating Action Controls Bar (Bottom Right, Flexbox aligned to prevent overlap) -->
+    <aside class="floating-celebration-bar" aria-label="Celebration Controls">
+      <button
+        type="button"
+        id="petals-toggle-btn"
+        class="petals-toggle-btn"
+        aria-label="Toggle falling flower petals"
+      >
+        <span>🌸</span>
+        <span>Pause Petals</span>
+      </button>
+      <button
+        type="button"
+        id="confetti-btn"
+        class="confetti-btn"
+        aria-label="Celebrate with Confetti"
+        title="Celebrate with Confetti!"
+      >
+        <span class="confetti-icon" aria-hidden="true">🎉</span>
+        <span>Celebrate</span>
+      </button>
+    </aside>
+    <!-- =======================================================================
+       1. Minimal Top Navigation
+       ======================================================================= -->
+    <header class="site-header" id="top-nav" role="banner">
+      <div class="container nav-container">
+        <!-- Monogram Lockup -->
+        <a
+          href="#invitation"
+          class="brand-monogram"
+          id="nav-monogram-link"
+          aria-label="Wedding Invitation Home"
+        >
+          <div class="monogram-circle" id="nav-monogram" aria-hidden="true">&nbsp;</div>
+          <div class="brand-text" id="nav-brand-text">&nbsp;</div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="#invitation" class="nav-link">Our Invitation</a></li>
+            <li><a href="#couple" class="nav-link">The Couple</a></li>
+            <li><a href="#celebrations" class="nav-link">Celebrations</a></li>
+            <li><a href="#places" class="nav-link">Places &amp; Map</a></li>
+          </ul>
+        </nav>
+
+        <!-- Action Button -->
+        <div style="display: flex; align-items: center; gap: 1rem">
+          <a
+            href="#celebrations"
+            class="btn btn-secondary btn-sm"
+            style="
+              display: none;
+              @media (min-width: 768px) {
+                display: inline-flex;
+              }
+            "
+          >
+            View Events
+          </a>
+          <a href="#countdown" class="btn btn-primary btn-sm">
+            Save the Date
+          </a>
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            type="button"
+            class="mobile-nav-toggle"
+            aria-label="Open Navigation Menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer Menu -->
+      <div
+        class="mobile-menu-drawer"
+        id="mobile-drawer"
+        role="navigation"
+        aria-label="Mobile Navigation"
+      >
+        <ul class="mobile-menu-links">
+          <li><a href="#invitation">Our Invitation</a></li>
+          <li><a href="#couple">The Couple &amp; Families</a></li>
+          <li><a href="#celebrations">Wedding Celebrations</a></li>
+          <li><a href="#places">Guest Guide &amp; Map (15 km)</a></li>
+          <li><a href="#rsvp">Blessings &amp; Closing</a></li>
+        </ul>
+        <a href="#celebrations" class="btn btn-primary" style="width: 100%"
+          >Explore Events</a
+        >
+      </div>
+    </header>
+    <main id="main-content">
+      <!-- =======================================================================
+         2. Hero / Invitation Cover
+         ======================================================================= -->
+      <section
+        class="hero-section"
+        id="invitation"
+        aria-labelledby="invitation-heading"
+      >
+        <div class="container">
+          <article class="hero-card">
+            <!-- Subtle Indian Mandala Background Watermark -->
+            <svg
+              class="mandala-bg-watermark"
+              viewBox="0 0 200 200"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              aria-hidden="true"
+            >
+              <circle cx="100" cy="100" r="95" stroke-dasharray="3,4"></circle>
+              <circle cx="100" cy="100" r="80"></circle>
+              <circle cx="100" cy="100" r="64" stroke-dasharray="2,3"></circle>
+              <circle cx="100" cy="100" r="48"></circle>
+              <circle cx="100" cy="100" r="32"></circle>
+              <circle
+                cx="100"
+                cy="100"
+                r="16"
+                fill="rgba(34,115,179,0.06)"
+              ></circle>
+              <circle cx="100" cy="100" r="5" fill="currentColor"></circle>
+              <path
+                d="M 100,20 C 112,46 124,58 152,68 C 124,80 112,92 100,120 C 88,92 76,80 48,68 C 76,58 88,46 100,20 Z"
+              ></path>
+              <path
+                d="M 100,80 C 112,108 124,120 152,132 C 124,144 112,156 100,180 C 88,156 76,144 48,132 C 76,120 88,108 100,80 Z"
+              ></path>
+              <path
+                d="M 20,100 C 46,88 58,76 68,48 C 80,76 92,88 120,100 C 92,112 80,124 68,152 C 58,124 46,112 20,100 Z"
+              ></path>
+              <path
+                d="M 80,100 C 108,88 120,76 132,48 C 144,76 156,88 180,100 C 156,112 144,124 132,152 C 120,124 108,112 80,100 Z"
+              ></path>
+            </svg>
+
+            <!-- Traditional Indian Jaali / Mandala Corner Accents -->
+            <svg
+              class="corner-ornament corner-top-left"
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M 0,0 L 40,0 C 40,25 25,40 0,40 Z"></path>
+              <circle cx="15" cy="15" r="8"></circle>
+              <path d="M 0,60 C 35,60 60,35 60,0"></path>
+              <path d="M 0,80 C 45,80 80,45 80,0"></path>
+            </svg>
+            <svg
+              class="corner-ornament corner-top-right"
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M 0,0 L 40,0 C 40,25 25,40 0,40 Z"></path>
+              <circle cx="15" cy="15" r="8"></circle>
+              <path d="M 0,60 C 35,60 60,35 60,0"></path>
+              <path d="M 0,80 C 45,80 80,45 80,0"></path>
+            </svg>
+            <svg
+              class="corner-ornament corner-bottom-left"
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M 0,0 L 40,0 C 40,25 25,40 0,40 Z"></path>
+              <circle cx="15" cy="15" r="8"></circle>
+              <path d="M 0,60 C 35,60 60,35 60,0"></path>
+              <path d="M 0,80 C 45,80 80,45 80,0"></path>
+            </svg>
+            <svg
+              class="corner-ornament corner-bottom-right"
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M 0,0 L 40,0 C 40,25 25,40 0,40 Z"></path>
+              <circle cx="15" cy="15" r="8"></circle>
+              <path d="M 0,60 C 35,60 60,35 60,0"></path>
+              <path d="M 0,80 C 45,80 80,45 80,0"></path>
+            </svg>
+
+            <div class="hero-inner">
+              <div class="hero-text-block">
+                <!-- Auspicious Inscription with Shubh Vivah on next line -->
+                <div class="auspicious-shloka" aria-label="Auspicious Shloka">
+                  <span class="shloka-main">|| ॐ श्री गणेशाय नमः ||</span>
+                  <span class="shloka-sub">शुभ विवाह</span>
+                </div>
+
+                <!-- Eyebrow Invitation Line -->
+                <p class="invitation-intro">
+                  Together with our families, we joyfully invite you to
+                  celebrate the sacred union of
+                </p>
+
+                <!-- Main Couple Heading -->
+                <h1 class="hero-couple-names" id="invitation-heading"></h1>
+
+                <!-- Formal Names -->
+                <p class="hero-formal-names" id="hero-formal-names"></p>
+
+                <!-- Floral Ornament Divider -->
+                <div class="ornament-divider" aria-hidden="true">
+                  <svg class="ornament-lotus" viewBox="0 0 24 24">
+                    <path
+                      d="M12 3c-1.5 3-4 5.5-4 9 0 2.2 1.8 4 4 4s4-1.8 4-4c0-3.5-2.5-6-4-9zm-6 9c0 3.3 2.7 6 6 6s6-2.7 6-6c0-2-1-4-2-5.5.8 2.2 0 4.5-2 5.5-1.5.8-3.5.5-4.5-.5-1-1-1.2-2.5-.5-4-1 1.5-2 3.5-2 4.5z"
+                    />
+                  </svg>
+                </div>
+
+                <!-- Family Statement -->
+                <p class="hero-family-statement" id="hero-family-statement"></p>
+
+                <!-- Wedding Date Badge -->
+                <div>
+                  <div class="hero-date-banner">
+                    <span class="gradient-badge">Wedding Ceremony</span>
+                    <span class="date-text" id="hero-date-text"></span>
+                  </div>
+                </div>
+
+                <!-- CTA Actions -->
+                <div class="hero-cta-group">
+                  <a href="#celebrations" class="btn btn-primary">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"
+                      />
+                    </svg>
+                    Explore Celebrations
+                  </a>
+                  <a href="#places" class="btn btn-secondary">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                      />
+                    </svg>
+                    Guest Places &amp; Map
+                  </a>
+                </div>
+              </div>
+
+              <!-- Hero 16:9 Landscape Couple Editorial Photo -->
+              <div class="hero-photo-wrapper">
+                <div class="hero-photo-frame">
+                  <img
+                    id="hero-landscape-img"
+                    src="./assets/images/Couple%20Pic%20landscape%20orientation.jpeg"
+                    alt="Wedding Couple Portrait"
+                    width="1920"
+                    height="1080"
+                    loading="eager"
+                    fetchpriority="high"
+                  />
+                  <div class="hero-photo-badge" aria-hidden="true">
+                    Together in Love · Forever
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+         3. Live Countdown Module
+         ======================================================================= -->
+      <section
+        class="countdown-section"
+        id="countdown"
+        aria-labelledby="countdown-title"
+      >
+        <div class="container container-narrow">
+          <div class="countdown-card">
+            <div class="countdown-header">
+              <span class="eyebrow">Auspicious Muhurat</span>
+              <h2 class="countdown-title" id="countdown-title">
+                Counting Down to the Wedding Ceremony
+              </h2>
+              <p class="countdown-target-label" id="countdown-target-label"></p>
+            </div>
+
+            <!-- Timer Units -->
+            <div
+              class="countdown-timer-grid"
+              id="countdown-grid"
+              role="timer"
+              aria-live="polite"
+            >
+              <div class="countdown-unit">
+                <span class="countdown-number" id="count-days">--</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-separator" aria-hidden="true">:</div>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="count-hours">--</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-separator" aria-hidden="true">:</div>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="count-minutes">--</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <div class="countdown-separator" aria-hidden="true">:</div>
+              <div class="countdown-unit">
+                <span class="countdown-number" id="count-seconds">--</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+
+            <!-- Past Event Message (graceful fallback) -->
+            <div
+              id="countdown-past-msg"
+              class="countdown-past-msg"
+              style="display: none"
+            ></div>
+
+            <div class="countdown-actions">
+              <a
+                id="countdown-calendar-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"
+                  />
+                </svg>
+                Add Ceremony to Google Calendar
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- =======================================================================
+         4. Couple and Family Introduction
+         ======================================================================= -->
+      <section
+        class="section-padding"
+        id="couple"
+        aria-labelledby="couple-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Two Families United</span>
+            <h2 class="section-title" id="couple-heading">
+              The Bride &amp; Groom
+            </h2>
+
+            <!-- Mandala Section Divider -->
+            <div class="mandala-divider" aria-hidden="true">
+              <svg
+                class="mandala-icon-sm"
+                viewBox="0 0 100 100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <circle cx="50" cy="50" r="46" stroke-dasharray="2,3" />
+                <circle cx="50" cy="50" r="38" />
+                <circle cx="50" cy="50" r="26" />
+                <circle cx="50" cy="50" r="14" fill="rgba(34,115,179,0.12)" />
+                <circle cx="50" cy="50" r="5" fill="currentColor" />
+                <path
+                  d="M 50,12 C 54,26 62,34 76,38 C 62,42 54,50 50,64 C 46,50 38,42 24,38 C 38,34 46,26 50,12 Z"
+                />
+                <path
+                  d="M 50,36 C 58,40 60,42 64,50 C 60,58 58,60 50,64 C 42,60 40,58 36,50 C 40,42 42,40 50,36 Z"
+                />
+              </svg>
+            </div>
+
+            <p class="section-subtitle">
+              With the boundless blessings of our parents, we embark on this
+              sacred journey of eternal companionship.
+            </p>
+          </div>
+
+          <!-- Balanced 2-Column Couple Cards -->
+          <div class="couple-grid">
+            <!-- Groom Profile -->
+            <article class="profile-card" id="groom-card">
+              <div class="profile-photo-wrapper">
+                <div class="profile-photo-frame">
+                  <img
+                    id="groom-portrait-img"
+                    src="./assets/images/Groom%20Single.jpeg"
+                    alt="Portrait of Groom"
+                    width="800"
+                    height="800"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="profile-role-tag">The Groom</div>
+              <h3 class="profile-name" id="groom-name"></h3>
+              <p class="profile-relation" id="groom-relation"></p>
+              <p class="profile-parents" id="groom-parents"></p>
+            </article>
+
+            <!-- Bride Profile -->
+            <article class="profile-card" id="bride-card">
+              <div class="profile-photo-wrapper">
+                <div class="profile-photo-frame">
+                  <img
+                    id="bride-portrait-img"
+                    src="./assets/images/Bride%20Single.JPG"
+                    alt="Portrait of Bride"
+                    width="800"
+                    height="800"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="profile-role-tag">The Bride</div>
+              <h3 class="profile-name" id="bride-name"></h3>
+              <p class="profile-relation" id="bride-relation"></p>
+              <p class="profile-parents" id="bride-parents"></p>
+            </article>
+          </div>
+
+          <!-- Editorial Feature Moment: 2:3 Portrait Photo & Our Story -->
+          <article class="couple-feature-card">
+            <div class="couple-feature-grid">
+              <div class="couple-feature-photo">
+                <img
+                  id="couple-portrait-img"
+                  src="./assets/images/Couple%20Pic%20portrait%20orientation.jpg"
+                  alt="Intimate Couple Portrait"
+                  width="1080"
+                  height="1620"
+                  loading="lazy"
+                />
+              </div>
+              <div class="couple-feature-content">
+                <span class="eyebrow">Our Journey Begins</span>
+                <h3 class="section-title" style="font-size: 2.2rem">
+                  Bound by Love &amp; Tradition
+                </h3>
+                <p class="story-quote">
+                  “In all the world, there is no heart for me like yours. In all
+                  the world, there is no love for you like mine.”
+                </p>
+                <p
+                  style="
+                    color: var(--color-text-muted);
+                    font-size: 0.95rem;
+                    line-height: 1.8;
+                  "
+                >
+                  From laughter shared across memories to promising a lifetime
+                  of partnership, we celebrate the sacred rituals of marriage
+                  surrounded by our cherished families, relatives, and lifelong
+                  friends.
+                </p>
+                <div style="margin-top: 1.75rem">
+                  <a href="#celebrations" class="btn btn-outline-gold">
+                    Explore Wedding Celebrations
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+         5. Celebrations / Event Timeline
+         ======================================================================= -->
+      <section
+        class="section-padding"
+        id="celebrations"
+        aria-labelledby="celebrations-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Program &amp; Muhurat</span>
+            <h2 class="section-title" id="celebrations-heading">
+              Wedding Celebrations
+            </h2>
+
+            <!-- Mandala Section Divider -->
+            <div class="mandala-divider" aria-hidden="true">
+              <svg
+                class="mandala-icon-sm"
+                viewBox="0 0 100 100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <circle cx="50" cy="50" r="46" stroke-dasharray="2,3" />
+                <circle cx="50" cy="50" r="38" />
+                <circle cx="50" cy="50" r="26" />
+                <circle cx="50" cy="50" r="14" fill="rgba(34,115,179,0.12)" />
+                <circle cx="50" cy="50" r="5" fill="currentColor" />
+                <path
+                  d="M 50,12 C 54,26 62,34 76,38 C 62,42 54,50 50,64 C 46,50 38,42 24,38 C 38,34 46,26 50,12 Z"
+                />
+                <path
+                  d="M 50,36 C 58,40 60,42 64,50 C 60,58 58,60 50,64 C 42,60 40,58 36,50 C 40,42 42,40 50,36 Z"
+                />
+              </svg>
+            </div>
+
+            <p class="section-subtitle">
+              Join us through each auspicious ritual as we unite our hearts
+              and families in eternal love.
+            </p>
+          </div>
+
+          <!-- Timeline Container (Data-driven from JSON) -->
+          <div class="timeline-container">
+            <div class="timeline-connector" aria-hidden="true"></div>
+            <div id="timeline-items-container">
+              <!-- Rendered dynamically by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- =======================================================================
+         6. Places Directory & Interactive Map (15 km Radius)
+         ======================================================================= -->
+      <section
+        class="section-padding places-section"
+        id="places"
+        aria-labelledby="places-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Guest Guide &amp; Accommodations</span>
+            <h2 class="section-title" id="places-heading">
+              Explore Nearby Places
+            </h2>
+
+            <!-- Mandala Section Divider -->
+            <div class="mandala-divider" aria-hidden="true">
+              <svg
+                class="mandala-icon-sm"
+                viewBox="0 0 100 100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <circle cx="50" cy="50" r="46" stroke-dasharray="2,3" />
+                <circle cx="50" cy="50" r="38" />
+                <circle cx="50" cy="50" r="26" />
+                <circle cx="50" cy="50" r="14" fill="rgba(34,115,179,0.12)" />
+                <circle cx="50" cy="50" r="5" fill="currentColor" />
+                <path
+                  d="M 50,12 C 54,26 62,34 76,38 C 62,42 54,50 50,64 C 46,50 38,42 24,38 C 38,34 46,26 50,12 Z"
+                />
+                <path
+                  d="M 50,36 C 58,40 60,42 64,50 C 60,58 58,60 50,64 C 42,60 40,58 36,50 C 40,42 42,40 50,36 Z"
+                />
+              </svg>
+            </div>
+
+            <p class="section-subtitle">
+              An interactive guest directory and visual map centered on our
+              wedding celebration areas, featuring accommodations, dining,
+              shopping, and sights.
+            </p>
+          </div>
+
+          <!-- Controls Card: Center Selector, Categories, Search & Radius Toggle -->
+          <div class="places-controls-card">
+            <!-- Radius Center Banner -->
+            <div class="radius-center-banner">
+              <div class="radius-info-text">
+                <svg
+                  class="radius-info-icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                <div>
+                  <strong>Active 15 km Radius Center:</strong>
+                  <span
+                    id="current-center-name"
+                    style="color: var(--color-royal-cobalt); font-weight: 600"
+                    >Groom's Location</span
+                  >
+                </div>
+              </div>
+
+              <div class="center-selector-group">
+                <label for="center-toggle-select" class="center-select-label"
+                  >Change Focus Area:</label
+                >
+                <select
+                  id="center-toggle-select"
+                  class="center-toggle-select"
+                  aria-label="Select radius center focus area"
+                >
+                  <option value="groom" selected>
+                    Groom's Location
+                  </option>
+                  <option value="bride">
+                    Bride's Location
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Notice that interactive map is positioned below directory -->
+            <div class="map-visibility-notice">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <span
+                ><strong>Guest Notice:</strong> Explore the directory of places
+                below. The <strong>Interactive Visual 15 km Map</strong> is
+                located right below the table.</span
+              >
+            </div>
+
+            <!-- Dynamic Category Filter Chips -->
+            <div
+              class="filter-tabs-wrapper"
+              id="filter-chips-container"
+              role="tablist"
+              aria-label="Place Categories"
+            >
+              <!-- Dynamically populated chips -->
+            </div>
+
+            <!-- Search and Radius Toggle Bar -->
+            <div class="search-and-radius-bar">
+              <!-- Search Input -->
+              <div class="search-input-wrapper">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  id="places-search-input"
+                  class="search-input"
+                  placeholder="Search places by name or category..."
+                  aria-label="Search places by name or category"
+                />
+                <button
+                  type="button"
+                  id="search-clear-btn"
+                  class="search-clear-btn"
+                  aria-label="Clear search input"
+                >
+                  &times;
+                </button>
+              </div>
+
+              <!-- Radius Mode Toggle & Counter -->
+              <div
+                class="radius-filter-group"
+                role="group"
+                aria-label="Radius Filter Mode"
+              >
+                <button
+                  type="button"
+                  id="btn-mode-all"
+                  class="radius-toggle-btn active"
+                  data-mode="all"
+                  aria-pressed="true"
+                >
+                  All Places
+                </button>
+                <button
+                  type="button"
+                  id="btn-mode-within"
+                  class="radius-toggle-btn"
+                  data-mode="within"
+                  aria-pressed="false"
+                >
+                  Within 15 km Radius
+                </button>
+                <span id="places-count-badge" class="results-count-badge"
+                  >-- places</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Directory Table / Mobile Cards (Positioned ABOVE Map Container) -->
+          <div class="directory-card" id="directory-table-wrapper">
+            <table
+              class="directory-table"
+              aria-label="Directory of nearby places"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Place Name</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Distance from Center</th>
+                  <th scope="col" style="text-align: right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="places-table-body">
+                <!-- Rendered dynamically by app.js with Google Maps links -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty State for Filters -->
+          <div
+            id="places-empty-state"
+            class="directory-card places-empty-state"
+            style="display: none"
+          >
+            <h3 class="empty-state-title">No Places Match Your Search</h3>
+            <p class="empty-state-msg">
+              No locations found matching the selected filters. Try broadening
+              your category or clearing search terms.
+            </p>
+            <button
+              type="button"
+              id="reset-filters-btn"
+              class="btn btn-secondary btn-sm"
+            >
+              Reset Filters &amp; Show All
+            </button>
+          </div>
+
+          <!-- Interactive Map Container (Positioned BELOW Directory) -->
+          <div class="map-container-wrapper">
+            <div class="map-header-bar">
+              <span
+                ><strong>Interactive Map</strong> &nbsp;•&nbsp; Click any marker
+                for place details and directions</span
+              >
+              <div class="map-legend-items">
+                <div class="map-legend-item">
+                  <span class="legend-dot in-radius" aria-hidden="true"></span>
+                  <span>Within 15 km</span>
+                </div>
+                <div class="map-legend-item">
+                  <span
+                    class="legend-dot circle-boundary"
+                    aria-hidden="true"
+                  ></span>
+                  <span>15 km Boundary</span>
+                </div>
+                <div class="map-legend-item">
+                  <span
+                    class="legend-dot outside-radius"
+                    aria-hidden="true"
+                  ></span>
+                  <span>Outside Radius</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leaflet Map Container -->
+            <div
+              id="wedding-map"
+              role="region"
+              aria-label="Interactive map showing wedding locations and nearby places"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <!-- =======================================================================
+         7. Closing Invitation / RSVP-Style Ending
+         ======================================================================= -->
+      <section class="rsvp-section" id="rsvp" aria-labelledby="closing-heading">
+        <div class="container container-narrow">
+          <article class="rsvp-card">
+            <!-- Subtle Indian Mandala Background Watermark -->
+            <svg
+              class="mandala-bg-watermark"
+              viewBox="0 0 200 200"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              aria-hidden="true"
+            >
+              <circle cx="100" cy="100" r="95" stroke-dasharray="3,4"></circle>
+              <circle cx="100" cy="100" r="80"></circle>
+              <circle cx="100" cy="100" r="64" stroke-dasharray="2,3"></circle>
+              <circle cx="100" cy="100" r="48"></circle>
+              <circle cx="100" cy="100" r="32"></circle>
+              <circle
+                cx="100"
+                cy="100"
+                r="16"
+                fill="rgba(34,115,179,0.06)"
+              ></circle>
+              <circle cx="100" cy="100" r="5" fill="currentColor"></circle>
+              <path
+                d="M 100,20 C 112,46 124,58 152,68 C 124,80 112,92 100,120 C 88,92 76,80 48,68 C 76,58 88,46 100,20 Z"
+              ></path>
+              <path
+                d="M 100,80 C 112,108 124,120 152,132 C 124,144 112,156 100,180 C 88,156 76,144 48,132 C 76,120 88,108 100,80 Z"
+              ></path>
+              <path
+                d="M 20,100 C 46,88 58,76 68,48 C 80,76 92,88 120,100 C 92,112 80,124 68,152 C 58,124 46,112 20,100 Z"
+              ></path>
+              <path
+                d="M 80,100 C 108,88 120,76 132,48 C 144,76 156,88 180,100 C 156,112 144,124 132,152 C 120,124 108,112 80,100 Z"
+              ></path>
+            </svg>
+
+            <!-- Auspicious Shloka with Shubh Vivah on next line -->
+            <div class="auspicious-shloka" aria-hidden="true">
+              <span class="shloka-main"
+                >|| मङ्गलम् भगवान् विष्णुः मङ्गलम् गरुडध्वजः ||</span
+              >
+              <span class="shloka-main"
+                >|| मङ्गलम् पुण्डरीकाक्षः मङ्गलाय तनो हरिः ||</span
+              >
+              <span class="shloka-sub">शुभ विवाह</span>
+            </div>
+
+            <h2 class="section-title" id="closing-heading">
+              With Heartfelt Warmth
+            </h2>
+
+            <div class="ornament-divider" aria-hidden="true">
+              <svg class="ornament-lotus" viewBox="0 0 24 24">
+                <path
+                  d="M12 3c-1.5 3-4 5.5-4 9 0 2.2 1.8 4 4 4s4-1.8 4-4c0-3.5-2.5-6-4-9zm-6 9c0 3.3 2.7 6 6 6s6-2.7 6-6c0-2-1-4-2-5.5.8 2.2 0 4.5-2 5.5-1.5.8-3.5.5-4.5-.5-1-1-1.2-2.5-.5-4-1 1.5-2 3.5-2 4.5z"
+                />
+              </svg>
+            </div>
+
+            <p class="rsvp-statement">
+              Your gracious presence and blessings on our auspicious wedding day
+              will add immeasurable joy to our celebrations as we unite our
+              hearts and families in eternal love.
+            </p>
+
+            <p
+              id="rsvp-date-text"
+              style="
+                font-family: var(--font-serif-heading);
+                font-size: 1.1rem;
+                color: var(--color-gold-dark);
+                margin-bottom: 2rem;
+              "
+            >
+              Shubh Vivah
+            </p>
+
+            <div class="rsvp-actions">
+              <a href="#celebrations" class="btn btn-primary">
+                Review Celebrations Schedule
+              </a>
+              <a href="#places" class="btn btn-secondary">
+                View Venue &amp; Map Guide
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- =======================================================================
+       8. Footer
+       ======================================================================= -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <p class="footer-couple-name" id="footer-couple-name"></p>
+        <p class="footer-date" id="footer-date"></p>
+        <div
+          class="ornament-divider"
+          style="max-width: 180px; margin-block: 0.75rem"
+          aria-hidden="true"
+        >
+          <svg
+            class="ornament-lotus"
+            style="width: 16px; height: 16px"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 3c-1.5 3-4 5.5-4 9 0 2.2 1.8 4 4 4s4-1.8 4-4c0-3.5-2.5-6-4-9zm-6 9c0 3.3 2.7 6 6 6s6-2.7 6-6c0-2-1-4-2-5.5.8 2.2 0 4.5-2 5.5-1.5.8-3.5.5-4.5-.5-1-1-1.2-2.5-.5-4-1 1.5-2 3.5-2 4.5z"
+            />
+          </svg>
+        </div>
+        <p class="footer-blessing" id="footer-blessing">
+          Made with love for the Wedding Celebrations
+        </p>
+      </div>
+    </footer>
+
+    <!-- Leaflet Map JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- Modular Application Logic -->
+    <script src="./js/utils.js" defer></script>
+    <script src="./js/dataProcess.js" defer></script>
+    <script src="./js/data.js" defer></script>
+    <script src="./js/navigation.js" defer></script>
+    <script src="./js/couple.js" defer></script>
+    <script src="./js/timeline.js" defer></script>
+    <script src="./js/countdown.js" defer></script>
+    <script src="./js/map.js" defer></script>
+    <script src="./js/directory.js" defer></script>
+    <script src="./js/petals.js" defer></script>
+    <script src="./js/confetti.js" defer></script>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+    <!-- =======================================================================
+       1. Minimal Top Navigation
+       ======================================================================= -->
+    <header class="site-header" id="top-nav" role="banner">
+      <div class="container nav-container">
+        <!-- Monogram Lockup -->
+        <a
+          href="#invitation"
+          class="brand-monogram"
+          id="nav-monogram-link"
+          aria-label="Wedding Invitation Home"
+        >
+          <div class="monogram-circle" id="nav-monogram" aria-hidden="true">&nbsp;</div>
+          <div class="brand-text" id="nav-brand-text">&nbsp;</div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="#invitation" class="nav-link">Our Invitation</a></li>
+            <li><a href="#couple" class="nav-link">The Couple</a></li>
+            <li><a href="#celebrations" class="nav-link">Celebrations</a></li>
+            <li><a href="#places" class="nav-link">Places &amp; Map</a></li>
+          </ul>
+        </nav>
+
+        <!-- Action Button -->
+        <div style="display: flex; align-items: center; gap: 1rem">
+          <a
+            href="#celebrations"
+            class="btn btn-secondary btn-sm"
+            style="
+              display: none;
+              @media (min-width: 768px) {
+                display: inline-flex;
+              }
+            "
+          >
+            View Events
+          </a>
+          <a href="#countdown" class="btn btn-primary btn-sm">
+            Save the Date
+          </a>
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            type="button"
+            class="mobile-nav-toggle"
+            aria-label="Open Navigation Menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer Menu -->
+      <div
+        class="mobile-menu-drawer"
+        id="mobile-drawer"
+        role="navigation"
+        aria-label="Mobile Navigation"
+      >
+        <ul class="mobile-menu-links">
+          <li><a href="#invitation">Our Invitation</a></li>
+          <li><a href="#couple">The Couple &amp; Families</a></li>
+          <li><a href="#celebrations">Wedding Celebrations</a></li>
+          <li><a href="#places">Guest Guide &amp; Map (15 km)</a></li>
+          <li><a href="#rsvp">Blessings &amp; Closing</a></li>
+        </ul>
+        <a href="#celebrations" class="btn btn-primary" style="width: 100%"
+          >Explore Events</a
+        >
+      </div>
+    </header>
